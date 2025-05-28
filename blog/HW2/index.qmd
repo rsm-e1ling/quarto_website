@@ -179,7 +179,7 @@ $$
 \lambda = \frac{1}{n} \sum_{i=1}^{n} Y_i = \bar{Y}
 $$
 
-Thus, the MLE for 𝜆 is the sample mean of the observed values Y , denoted  bar_Y. This is consistent with the fact that the mean of a Poisson distribution is 𝜆.
+Thus, the MLE for $\lambda$ is the sample mean of the observed values Y , denoted  bar_Y. This is consistent with the fact that the mean of a Poisson distribution is $\lambda$.
 
 
 ```{r}
