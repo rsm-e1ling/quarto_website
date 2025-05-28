@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.43">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Eileen Ling">
+<meta name="dcterms.date" content="2001-04-22">
+
+<title>A Replication of Karlan and List (2007) – Eileen’s Website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Eileen’s Website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#balance-test" id="toc-balance-test" class="nav-link" data-scroll-target="#balance-test">Balance Test</a></li>
+  </ul></li>
+  <li><a href="#experimental-results" id="toc-experimental-results" class="nav-link" data-scroll-target="#experimental-results">Experimental Results</a>
+  <ul class="collapse">
+  <li><a href="#charitable-contribution-made" id="toc-charitable-contribution-made" class="nav-link" data-scroll-target="#charitable-contribution-made">Charitable Contribution Made</a></li>
+  <li><a href="#differences-between-match-rates" id="toc-differences-between-match-rates" class="nav-link" data-scroll-target="#differences-between-match-rates">Differences between Match Rates</a></li>
+  <li><a href="#size-of-charitable-contribution" id="toc-size-of-charitable-contribution" class="nav-link" data-scroll-target="#size-of-charitable-contribution">Size of Charitable Contribution</a></li>
+  </ul></li>
+  <li><a href="#simulation-experiment" id="toc-simulation-experiment" class="nav-link" data-scroll-target="#simulation-experiment">Simulation Experiment</a>
+  <ul class="collapse">
+  <li><a href="#law-of-large-numbers" id="toc-law-of-large-numbers" class="nav-link" data-scroll-target="#law-of-large-numbers">Law of Large Numbers</a></li>
+  <li><a href="#central-limit-theorem" id="toc-central-limit-theorem" class="nav-link" data-scroll-target="#central-limit-theorem">Central Limit Theorem</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A Replication of Karlan and List (2007)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Eileen Ling </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 22, 2001</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Dean Karlan at Yale and John List at the University of Chicago conducted a field experiment to test the effectiveness of different fundraising letters. They sent out 50,000 fundraising letters to potential donors, randomly assigning each letter to one of three treatments: a standard letter, a matching grant letter, or a challenge grant letter. They published the results of this experiment in the <em>American Economic Review</em> in 2007. The article and supporting data are available from the <a href="https://www.aeaweb.org/articles?id=10.1257/aer.97.5.1774">AEA website</a> and from Innovations for Poverty Action as part of <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/27853&amp;version=4.2">Harvard’s Dataverse</a>.</p>
+<p>The study conducted by Dean Karlan and John List explored the effectiveness of matching grants in increasing charitable donations through a natural field experiment with over 50,000 prior donors to a nonprofit organization. Donors were randomly assigned to receive one of three match ratios (1:1, 2:1, or 3:1) or no match (control group).</p>
+<p>Key findings:</p>
+<p>Matching Grants Increased Donations: The matching grant increased both the response rate (22%) and revenue per solicitation (19%) compared to the control group.</p>
+<p>No Impact of Larger Match Ratios: Larger match ratios (2:1 or 3:1) had no additional effect compared to the 1:1 match.</p>
+<p>Political Environment Influence: Donors in red states (Bush voters) responded more positively to the match, with a 55% increase in revenue,blue states (Kerry voters) was minimal.</p>
+<p>Elasticity of Giving: Price elasticity (sensitivity to the matching offer) was estimated at -0.30, indicating moderate responsiveness to the match.</p>
+<p>Conclusion: The presence of a matching grant boosts donations, but larger match ratios do not lead to significantly more contributions. Political factors also play a role in donor behavior.</p>
+<p>This project seeks to replicate their results.</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="description" class="level3">
+<h3 class="anchored" data-anchor-id="description">Description</h3>
+<p>The dataset contains information on participants in a field experiment investigating charitable donations. Key columns include treatment and control, which identify whether individuals received a matching grant or were in the control group (no match). The ratio, ratio2, and ratio3 columns represent the match ratios in different treatment groups, such as 1:1, 2:1, and 3:1, with “Control” indicating no match. Additional columns like size, size25, size50, and size100 indicate the maximum matching grant amounts available, such as $100,000 or unspecified amounts. Redcty and bluecty reflect whether the donor resides in a Republican (red) or Democratic (blue) county, capturing the political environment. The dataset also includes demographic information about the donor’s area, such as pwhite and pblack, which represent the proportions of white and black residents, and page18_39, indicating the proportion of individuals aged 18-39. Other variables include ave_hh_sz (average household size), median_hhincome (median household income), powner (proportion of homeowners), psch_atlstba (proportion with at least a bachelor’s degree), and pop_propurban, which shows whether the donor lives in an urban area. This data provides insights into both the treatment characteristics and the demographic context of the participants, essential for understanding how different factors influenced charitable giving.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Variable Definitions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>treatment</code></td>
+<td>Treatment</td>
+</tr>
+<tr class="even">
+<td><code>control</code></td>
+<td>Control</td>
+</tr>
+<tr class="odd">
+<td><code>ratio</code></td>
+<td>Match ratio</td>
+</tr>
+<tr class="even">
+<td><code>ratio2</code></td>
+<td>2:1 match ratio</td>
+</tr>
+<tr class="odd">
+<td><code>ratio3</code></td>
+<td>3:1 match ratio</td>
+</tr>
+<tr class="even">
+<td><code>size</code></td>
+<td>Match threshold</td>
+</tr>
+<tr class="odd">
+<td><code>size25</code></td>
+<td>$25,000 match threshold</td>
+</tr>
+<tr class="even">
+<td><code>size50</code></td>
+<td>$50,000 match threshold</td>
+</tr>
+<tr class="odd">
+<td><code>size100</code></td>
+<td>$100,000 match threshold</td>
+</tr>
+<tr class="even">
+<td><code>sizeno</code></td>
+<td>Unstated match threshold</td>
+</tr>
+<tr class="odd">
+<td><code>ask</code></td>
+<td>Suggested donation amount</td>
+</tr>
+<tr class="even">
+<td><code>askd1</code></td>
+<td>Suggested donation was highest previous contribution</td>
+</tr>
+<tr class="odd">
+<td><code>askd2</code></td>
+<td>Suggested donation was 1.25 x highest previous contribution</td>
+</tr>
+<tr class="even">
+<td><code>askd3</code></td>
+<td>Suggested donation was 1.50 x highest previous contribution</td>
+</tr>
+<tr class="odd">
+<td><code>ask1</code></td>
+<td>Highest previous contribution (for suggestion)</td>
+</tr>
+<tr class="even">
+<td><code>ask2</code></td>
+<td>1.25 x highest previous contribution (for suggestion)</td>
+</tr>
+<tr class="odd">
+<td><code>ask3</code></td>
+<td>1.50 x highest previous contribution (for suggestion)</td>
+</tr>
+<tr class="even">
+<td><code>amount</code></td>
+<td>Dollars given</td>
+</tr>
+<tr class="odd">
+<td><code>gave</code></td>
+<td>Gave anything</td>
+</tr>
+<tr class="even">
+<td><code>amountchange</code></td>
+<td>Change in amount given</td>
+</tr>
+<tr class="odd">
+<td><code>hpa</code></td>
+<td>Highest previous contribution</td>
+</tr>
+<tr class="even">
+<td><code>ltmedmra</code></td>
+<td>Small prior donor: last gift was less than median $35</td>
+</tr>
+<tr class="odd">
+<td><code>freq</code></td>
+<td>Number of prior donations</td>
+</tr>
+<tr class="even">
+<td><code>years</code></td>
+<td>Number of years since initial donation</td>
+</tr>
+<tr class="odd">
+<td><code>year5</code></td>
+<td>At least 5 years since initial donation</td>
+</tr>
+<tr class="even">
+<td><code>mrm2</code></td>
+<td>Number of months since last donation</td>
+</tr>
+<tr class="odd">
+<td><code>dormant</code></td>
+<td>Already donated in 2005</td>
+</tr>
+<tr class="even">
+<td><code>female</code></td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td><code>couple</code></td>
+<td>Couple</td>
+</tr>
+<tr class="even">
+<td><code>state50one</code></td>
+<td>State tag: 1 for one observation of each of 50 states; 0 otherwise</td>
+</tr>
+<tr class="odd">
+<td><code>nonlit</code></td>
+<td>Nonlitigation</td>
+</tr>
+<tr class="even">
+<td><code>cases</code></td>
+<td>Court cases from state in 2004-5 in which organization was involved</td>
+</tr>
+<tr class="odd">
+<td><code>statecnt</code></td>
+<td>Percent of sample from state</td>
+</tr>
+<tr class="even">
+<td><code>stateresponse</code></td>
+<td>Proportion of sample from the state who gave</td>
+</tr>
+<tr class="odd">
+<td><code>stateresponset</code></td>
+<td>Proportion of treated sample from the state who gave</td>
+</tr>
+<tr class="even">
+<td><code>stateresponsec</code></td>
+<td>Proportion of control sample from the state who gave</td>
+</tr>
+<tr class="odd">
+<td><code>stateresponsetminc</code></td>
+<td>stateresponset - stateresponsec</td>
+</tr>
+<tr class="even">
+<td><code>perbush</code></td>
+<td>State vote share for Bush</td>
+</tr>
+<tr class="odd">
+<td><code>close25</code></td>
+<td>State vote share for Bush between 47.5% and 52.5%</td>
+</tr>
+<tr class="even">
+<td><code>red0</code></td>
+<td>Red state</td>
+</tr>
+<tr class="odd">
+<td><code>blue0</code></td>
+<td>Blue state</td>
+</tr>
+<tr class="even">
+<td><code>redcty</code></td>
+<td>Red county</td>
+</tr>
+<tr class="odd">
+<td><code>bluecty</code></td>
+<td>Blue county</td>
+</tr>
+<tr class="even">
+<td><code>pwhite</code></td>
+<td>Proportion white within zip code</td>
+</tr>
+<tr class="odd">
+<td><code>pblack</code></td>
+<td>Proportion black within zip code</td>
+</tr>
+<tr class="even">
+<td><code>page18_39</code></td>
+<td>Proportion age 18-39 within zip code</td>
+</tr>
+<tr class="odd">
+<td><code>ave_hh_sz</code></td>
+<td>Average household size within zip code</td>
+</tr>
+<tr class="even">
+<td><code>median_hhincome</code></td>
+<td>Median household income within zip code</td>
+</tr>
+<tr class="odd">
+<td><code>powner</code></td>
+<td>Proportion house owner within zip code</td>
+</tr>
+<tr class="even">
+<td><code>psch_atlstba</code></td>
+<td>Proportion who finished college within zip code</td>
+</tr>
+<tr class="odd">
+<td><code>pop_propurban</code></td>
+<td>Proportion of population urban within zip code</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="balance-test" class="level3">
+<h3 class="anchored" data-anchor-id="balance-test">Balance Test</h3>
+<p>As an ad hoc test of the randomization mechanism, I provide a series of tests that compare aspects of the treatment and control groups to assess whether they are statistically significantly different from one another.</p>
+<pre><code>from scipy import stats
+
+# Conducting the balance test for the variable 'mrm2' (months since last donation)
+
+# 1. T-test for treatment vs. control group on 'mrm2'
+treatment_group = data[data['treatment'] == 1]['mrm2'].dropna()
+control_group = data[data['treatment'] == 0]['mrm2'].dropna()
+
+t_stat, p_value_ttest = stats.ttest_ind(treatment_group, control_group)
+
+# 2. Linear regression: Regress 'mrm2' on treatment
+import statsmodels.api as sm
+
+# Add constant term to the model
+X = sm.add_constant(data['treatment'])
+y = data['mrm2']
+
+# Linear regression model
+model = sm.OLS(y, X, missing='drop').fit()
+regression_coef = model.params['treatment']
+p_value_regression = model.pvalues['treatment']
+
+# Results
+t_stat, p_value_ttest, regression_coef, p_value_regression</code></pre>
+<p>Here are the results from both the t-test and the linear regression for the variable ‘mrm2’ (months since the last donation):</p>
+<p>T-test: T-statistic: 0.12 P-value: 0.90</p>
+<p>Linear Regression: Estimated Coefficient for Treatment: 0.0137 P-value for Treatment: 0.90</p>
+<p>Interpretation: Both the t-test and the linear regression indicate that there is no significant difference between the treatment and control groups with respect to the number of months since their last donation. This is because the p-value is much greater than the 0.05 significance level, meaning we fail to reject the null hypothesis of no difference.</p>
+<p>Why Table 1 is Included in the Paper: Table 1 in the paper serves as a balance test to confirm that the randomization process was effective, i.e., the treatment and control groups are similar in terms of observable characteristics before the experiment. Ensuring there are no significant pre-existing differences between the groups is critical for the validity of the experiment, as it suggests that any post-treatment differences in outcomes can be attributed to the treatment itself, not to systematic differences between the groups.</p>
+</section>
+</section>
+<section id="experimental-results" class="level2">
+<h2 class="anchored" data-anchor-id="experimental-results">Experimental Results</h2>
+<section id="charitable-contribution-made" class="level3">
+<h3 class="anchored" data-anchor-id="charitable-contribution-made">Charitable Contribution Made</h3>
+<p>First, I analyze whether matched donations lead to an increased response rate of making a donation.</p>
+<p>import matplotlib.pyplot as plt</p>
+<pre><code># Calculate the proportion of people who donated for treatment and control groups
+proportion_donated_treatment = data[data['treatment'] == 1]['gave'].mean()
+proportion_donated_control = data[data['treatment'] == 0]['gave'].mean()
+
+# Create a bar plot
+labels = ['Treatment', 'Control']
+proportions = [proportion_donated_treatment, proportion_donated_control]
+
+plt.bar(labels, proportions, color=['blue', 'orange'])
+plt.xlabel('Group')
+plt.ylabel('Proportion of People Who Donated')
+plt.title('Proportion of People Who Donated (Treatment vs. Control)')
+plt.ylim(0, 0.025)  # Adjust y-axis limit for better visibility
+plt.show()</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Proportion of People Who Donated.png" class="img-fluid figure-img"></p>
+<figcaption>Proportion of People Who Donated</figcaption>
+</figure>
+</div>
+<p>Then I run a t-test between the treatment and control groups on the binary outcome of whether any charitable donation was made. Also run a bivariate linear regression that demonstrates the same finding.</p>
+<pre><code># Conducting a t-test on the binary outcome 'gave' (whether any donation was made) for treatment and control groups
+
+# Treatment vs Control for the binary outcome of whether a donation was made
+treatment_donated = data[data['treatment'] == 1]['gave'].dropna()
+control_donated = data[data['treatment'] == 0]['gave'].dropna()
+
+# T-test
+t_stat_donated, p_value_donated = stats.ttest_ind(treatment_donated, control_donated)
+
+# Running a bivariate linear regression for the same binary outcome (gave) as dependent variable and treatment as independent variable
+X_donated = sm.add_constant(data['treatment'])  # adding constant for intercept
+y_donated = data['gave']
+
+# Linear regression model
+model_donated = sm.OLS(y_donated, X_donated, missing='drop').fit()
+regression_coef_donated = model_donated.params['treatment']
+p_value_regression_donated = model_donated.pvalues['treatment']
+
+# Results
+t_stat_donated, p_value_donated, regression_coef_donated, p_value_regression_donated</code></pre>
+<p>Statistical Results: T-test: The t-statistic is approximately 3.10, with a p-value of 0.0019.</p>
+<p>Linear Regression: The estimated coefficient for the treatment variable is approximately 0.0042, with a p-value of 0.0019.</p>
+<p>Interpretation: Both the t-test and the linear regression show a statistically significant difference between the treatment group (those who received the matching grant) and the control group (those who did not). The low p-value (0.0019) indicates that we can reject the null hypothesis and conclude that the treatment had an effect on the likelihood of making a donation.</p>
+<p>This means that individuals who were offered a matching grant were more likely to make a charitable contribution compared to those who did not receive the offer. In the context of the experiment, this suggests that the presence of a matching gift significantly increases the response rate—the proportion of people who donate. This finding is consistent with the idea that people are more inclined to donate when they perceive their contribution as “more valuable” due to the match, which could be seen as an incentive or psychological nudge.</p>
+<p>In human behavior terms, this indicates that matching grants can effectively encourage individuals to engage in charitable giving, supporting the idea that price (or the perception of increased value) plays a critical role in donation decisions.</p>
+<p>After that I wan to run a probit regression where the outcome variable is whether any charitable donation was made and the explanatory variable is assignment to treatment or control.</p>
+<pre><code># Running a probit regression where the outcome variable is whether any charitable donation was made (gave)
+# and the explanatory variable is assignment to treatment or control
+# We will exclude missing data for a clean model
+
+from statsmodels.discrete.discrete_model import Probit
+
+X_probit = sm.add_constant(data['treatment'])  # adding constant for intercept
+y_probit = data['gave']
+
+# Probit regression model
+probit_model = Probit(y_probit, X_probit).fit()
+
+# Extracting the results from the probit model
+probit_model.summary()</code></pre>
+<p>Probit Regression Results: Coefficient for Treatment: The estimated coefficient for the treatment variable is 0.0868, which means that being assigned to the treatment group (matching grant) increases the likelihood of making a charitable donation.</p>
+<p>P-value for Treatment: The p-value is 0.002, which is statistically significant at the 95% confidence level. This suggests that the treatment had a significant effect on the probability of making a donation.</p>
+<p>Intercept (const): The intercept is -2.1001, representing the predicted probability of donation for the control group (those who did not receive a matching grant).</p>
+<p>Summary: The results from this probit regression replicate the findings in Table 3, Column 1 from the paper. The coefficient for Treatment (0.0868) and p-value (0.002) are consistent with the expected outcome, indicating that the matching grant treatment significantly increases the likelihood of a donation.</p>
+<p>This confirms that the treatment (matching gift) was effective in encouraging donations.</p>
+</section>
+<section id="differences-between-match-rates" class="level3">
+<h3 class="anchored" data-anchor-id="differences-between-match-rates">Differences between Match Rates</h3>
+<p>Next, I assess the effectiveness of different sizes of matched donations on the response rate.</p>
+<p>I use a series of t-tests to test whether the size of the match ratio has an effect on whether people donate or not.</p>
+<pre><code># Cleaning the 'ratio' column by converting 'Control' to 0
+data['ratio'] = data['ratio'].replace('Control', 0)
+
+# Now grouping data by the different match ratios and conducting the t-tests again
+# Extracting the data for the 1:1, 2:1, and 3:1 ratios
+ratio_0 = data[data['ratio'] == 0]['gave']  # Control group (no match)
+ratio_1 = data[data['ratio'] == 1]['gave']  # 1:1 match group
+ratio_2 = data[data['ratio'] == 2]['gave']  # 2:1 match group
+ratio_3 = data[data['ratio'] == 3]['gave']  # 3:1 match group
+
+# Conducting t-tests
+t_stat_2_1_vs_1_1, p_value_2_1_vs_1_1 = stats.ttest_ind(ratio_1, ratio_2)  # 2:1 vs 1:1
+t_stat_3_1_vs_1_1, p_value_3_1_vs_1_1 = stats.ttest_ind(ratio_1, ratio_3)  # 3:1 vs 1:1
+
+# Results
+t_stat_2_1_vs_1_1, p_value_2_1_vs_1_1, t_stat_3_1_vs_1_1, p_value_3_1_vs_1_1</code></pre>
+<p>T-test Results: 2:1 vs 1:1 match ratio:</p>
+<p>T-statistic: -0.97</p>
+<p>P-value: 0.33</p>
+<p>3:1 vs 1:1 match ratio:</p>
+<p>T-statistic: -1.02</p>
+<p>P-value: 0.31</p>
+<p>Interpretation: The p-values for both comparisons (2:1 vs 1:1 and 3:1 vs 1:1) are above the 0.05 threshold, indicating no significant difference in the likelihood of making a donation between the different match ratios. Specifically:</p>
+<p>The 2:1 match ratio does not lead to a significantly higher likelihood of donation compared to the 1:1 ratio.</p>
+<p>Similarly, the 3:1 match ratio does not show a significant increase in the likelihood of donation when compared to the 1:1 ratio.</p>
+<p>Comparison to the Authors’ Comment: The authors’ comment on page 8 suggests that larger match ratios (like 2:1 and 3:1) might increase the likelihood of donation compared to a 1:1 ratio. However, the results from these t-tests do not support that claim. Based on the statistical analysis, there is no evidence to suggest that increasing the match ratio has a significant effect on donation behavior. The results indicate that the match ratio does not appear to significantly influence the decision to donate</p>
+<p>I also assess the same issue using a regression. Specifically, I create the variable <code>ratio1</code> then regress <code>gave</code> on <code>ratio1</code>, <code>ratio2</code>, and <code>ratio3</code> (or alternatively, regress <code>gave</code> on the categorical variable <code>ratio</code>).</p>
+<pre><code># Create the categorical variable 'ratio1' based on match ratios (1:1, 2:1, 3:1)
+data['ratio1'] = data['ratio'].astype('category')
+
+# Run a regression where the outcome variable is 'gave' (whether a donation was made)
+# and the explanatory variables are the match ratios (categorical 'ratio1')
+
+# Ensure that the categorical variable 'ratio1' is properly encoded as numeric
+X_regression = sm.add_constant(pd.get_dummies(data['ratio1'], drop_first=True).astype(float))  # Convert to float for compatibility
+y_regression = data['gave'].astype(float)  # Ensure the dependent variable is numeric
+
+# Run the linear regression model
+regression_model = sm.OLS(y_regression, X_regression, missing='drop').fit()
+
+# Show the summary of the regression results
+regression_model.summary()</code></pre>
+<p>Regression Results Interpretation: Intercept (const): The baseline probability of making a donation for the control group (those who received no matching grant) is 0.0179 (or about 1.79% of the control group donated).</p>
+<p>1 (Coefficient for 1:1 match): The coefficient for the 1:1 match ratio is 0.0029, suggesting a 0.29% increase in the likelihood of making a donation compared to the control group. However, the p-value (0.097) is marginally significant at the 10% level, but not significant at the 5% level.</p>
+<p>2 (Coefficient for 2:1 match): The coefficient for the 2:1 match ratio is 0.0048, showing a 0.48% increase in the likelihood of making a donation compared to the control group. This is statistically significant with a p-value of 0.006, indicating significance at the 1% level.</p>
+<p>3 (Coefficient for 3:1 match): The coefficient for the 3:1 match ratio is 0.0049, showing a 0.49% increase in the likelihood of making a donation compared to the control group. This is statistically significant with a p-value of 0.005, indicating significance at the 1% level.</p>
+<p>Statistical Significance: The coefficients for the 2:1 and 3:1 match ratios are statistically significant at the 1% level, while the coefficient for the 1:1 match is only marginally significant at the 10% level.</p>
+<p>Interpretation of Results: The regression results suggest that larger match ratios (2:1 and 3:1) lead to a statistically significant increase in the likelihood of making a donation, compared to the control group. The 1:1 ratio, while still showing an increase in donations, does not have as strong of an effect, as indicated by the marginally significant p-value.</p>
+<p>Next, I calculated the response rate difference between the 1:1 and 2:1 match ratios and the 2:1 and 3:1 ratios.</p>
+<pre><code># Extracting the coefficients for the match ratios
+coef_2_1_vs_1_1 = regression_model.params[1]  # Coefficient for 2:1 match
+coef_3_1_vs_2_1 = regression_model.params[2]  # Coefficient for 3:1 match
+
+# Calculate the differences in the coefficients
+coef_diff_2_1_vs_1_1 = coef_2_1_vs_1_1  # 2:1 vs 1:1
+coef_diff_3_1_vs_2_1 = coef_3_1_vs_2_1 - coef_2_1_vs_1_1  # 3:1 vs 2:1
+
+# Results
+coef_diff_2_1_vs_1_1, coef_diff_3_1_vs_2_1</code></pre>
+<p>Coefficient Differences: Difference between 2:1 and 1:1 match ratio: The coefficient difference is 0.0029, which indicates a 0.29% increase in the likelihood of donation for the 2:1 match ratio compared to the 1:1 match ratio.</p>
+<p>Difference between 3:1 and 2:1 match ratio: The coefficient difference is 0.0019, indicating a 0.19% increase in the likelihood of donation for the 3:1 match ratio compared to the 2:1 match ratio.</p>
+<p>Interpretation: The results suggest that both the 2:1 and 3:1 match ratios increase the likelihood of donation compared to the 1:1 ratio, but the increase is small.</p>
+<p>The effect of moving from a 2:1 to a 3:1 ratio is relatively smaller (0.19% increase), indicating diminishing returns as the match ratio increases.</p>
+<p>These findings suggest that while larger match ratios do have a positive effect on donation behavior, the increase becomes less pronounced as the ratio continues to grow. Therefore, higher match ratios may still have a positive effect, but the effectiveness diminishes at higher levels.</p>
+</section>
+<section id="size-of-charitable-contribution" class="level3">
+<h3 class="anchored" data-anchor-id="size-of-charitable-contribution">Size of Charitable Contribution</h3>
+<p>In this subsection, I analyze the effect of the size of matched donation on the size of the charitable contribution.</p>
+<p>I first calculate a t-test or run a bivariate linear regression of the donation amount on the treatment status.</p>
+<pre><code># T-test: Compare the donation amounts between the treatment and control groups
+treatment_amount = data[data['treatment'] == 1]['amount'].dropna()
+control_amount = data[data['treatment'] == 0]['amount'].dropna()
+
+# Conducting the t-test between treatment and control groups for donation amounts
+t_stat_amount, p_value_amount = stats.ttest_ind(treatment_amount, control_amount)
+
+# Bivariate Linear Regression: Regress donation amount on treatment status
+X_regression_amount = sm.add_constant(data['treatment'])  # Add constant for intercept
+y_regression_amount = data['amount']
+
+# Run the linear regression model
+regression_model_amount = sm.OLS(y_regression_amount, X_regression_amount, missing='drop').fit()
+
+# Results
+t_stat_amount, p_value_amount, regression_model_amount.summary()</code></pre>
+<p>T-test Results: T-statistic: 1.86</p>
+<p>P-value: 0.0628</p>
+<p>The p-value is just above the 0.05 significance level, indicating that there is a marginally significant difference in the donation amounts between the treatment (matching grant) and control groups. This suggests that the matching grant might slightly increase the donation amount, but the evidence is not strong enough to confidently conclude a significant effect at the 5% level.</p>
+<p>Bivariate Linear Regression Results: Intercept (const): The average donation amount for the control group (those who did not receive a matching grant) is $0.8133.</p>
+<p>Treatment Coefficient: The coefficient for the treatment variable is 0.1536, meaning that, on average, individuals in the treatment group donated $0.1536 more than those in the control group. The p-value for this coefficient is 0.063, which is marginally significant at the 10% level but not at the 5% level.</p>
+<p>Interpretation: Both the t-test and the regression suggest that matching grants have a small, marginal effect on donation amounts. Individuals in the treatment group tend to donate more than those in the control group, but the effect is small and only marginally significant.</p>
+<p>This implies that while matching grants may encourage slightly higher donation amounts, the increase is not large enough to be considered a substantial driver of larger contributions.</p>
+<p>Now I limit the data to just people who made a donation and repeat the previous analysis. This regression allows me to analyze how much respondents donate conditional on donating some positive amount.</p>
+<pre><code># Filter the data to include only people who made a donation (gave == 1)
+donors_data = data[data['gave'] == 1]
+
+# T-test: Compare the donation amounts between the treatment and control groups among those who donated
+treatment_amount_donors = donors_data[donors_data['treatment'] == 1]['amount'].dropna()
+control_amount_donors = donors_data[donors_data['treatment'] == 0]['amount'].dropna()
+
+# Conducting the t-test between treatment and control groups for donation amounts (only for donors)
+t_stat_amount_donors, p_value_amount_donors = stats.ttest_ind(treatment_amount_donors, control_amount_donors)
+
+# Bivariate Linear Regression: Regress donation amount on treatment status among those who donated
+X_regression_amount_donors = sm.add_constant(donors_data['treatment'])  # Add constant for intercept
+y_regression_amount_donors = donors_data['amount']
+
+# Run the linear regression model
+regression_model_amount_donors = sm.OLS(y_regression_amount_donors, X_regression_amount_donors, missing='drop').fit()
+
+# Results
+t_stat_amount_donors, p_value_amount_donors, regression_model_amount_donors.summary()</code></pre>
+<p>T-test Results: T-statistic: -0.58</p>
+<p>P-value: 0.56</p>
+<p>The p-value is quite high, suggesting that there is no significant difference in the donation amounts between the treatment and control groups among those who donated. This indicates that the matching grant treatment does not significantly affect the donation amounts, conditional on the person deciding to donate.</p>
+<p>Bivariate Linear Regression Results: Intercept (const): The estimated average donation amount for individuals in the control group (who did not receive a matching grant) is $45.54.</p>
+<p>Treatment Coefficient: The coefficient for the treatment variable is -1.6684, which suggests that the treatment group, on average, donates $1.67 less than the control group, conditional on donating. However, the p-value for this coefficient is 0.561, indicating that this result is not statistically significant.</p>
+<p>Interpretation: The t-test and regression show that there is no significant effect of receiving the matching grant on the amount donated among those who chose to donate. Although the regression suggests a small negative difference, it is not statistically significant.</p>
+<p>The treatment coefficient (whether a person was assigned to the matching grant) does not have a strong causal interpretation in this case. The lack of statistical significance means we cannot confidently say that the matching grant causally affects the donation amounts among those who donate. Additionally, there may be other factors influencing donation amounts that are not captured in the model, such as individual donor preferences, income, or other unobserved characteristics.</p>
+<p>In summary, the matching grant treatment does not appear to have a significant effect on how much people donate once they decide to contribute.</p>
+<p>I then made two plot: one for the treatment group and one for the control. Each plot should be a histogram of the donation amounts only among people who donated. I added a red vertical bar or some other annotation to indicate the sample average for each plot.</p>
+<pre><code>import matplotlib.pyplot as plt
+
+# Filter the data to include only people who donated
+treatment_donors = donors_data[donors_data['treatment'] == 1]['amount']
+control_donors = donors_data[donors_data['treatment'] == 0]['amount']
+
+# Calculate the sample averages for each group
+treatment_avg = treatment_donors.mean()
+control_avg = control_donors.mean()
+
+# Plot for the Treatment Group
+plt.figure(figsize=(12, 6))
+
+# Treatment Group Histogram
+plt.subplot(1, 2, 1)
+plt.hist(treatment_donors, bins=20, color='blue', edgecolor='black', alpha=0.7)
+plt.axvline(treatment_avg, color='red', linestyle='dashed', linewidth=2)
+plt.title('Treatment Group - Donation Amounts')
+plt.xlabel('Donation Amount')
+plt.ylabel('Frequency')
+plt.legend(['Sample Average', 'Donation Amounts'])
+
+# Control Group Histogram
+plt.subplot(1, 2, 2)
+plt.hist(control_donors, bins=20, color='orange', edgecolor='black', alpha=0.7)
+plt.axvline(control_avg, color='red', linestyle='dashed', linewidth=2)
+plt.title('Control Group - Donation Amounts')
+plt.xlabel('Donation Amount')
+plt.ylabel('Frequency')
+plt.legend(['Sample Average', 'Donation Amounts'])
+
+plt.tight_layout()
+plt.show()</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./Control Group - Donation Amounts.png" class="img-fluid figure-img"></p>
+<figcaption>Control Group - Donation Amounts</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="simulation-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-experiment">Simulation Experiment</h2>
+<p>As a reminder of how the t-statistic “works,” in this section I use simulation to demonstrate the Law of Large Numbers and the Central Limit Theorem.</p>
+<p>Suppose the true distribution of respondents who do not get a charitable donation match is Bernoulli with probability p=0.018 that a donation is made.</p>
+<p>Further suppose that the true distribution of respondents who do get a charitable donation match of any size is Bernoulli with probability p=0.022 that a donation is made.</p>
+<section id="law-of-large-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="law-of-large-numbers">Law of Large Numbers</h3>
+<p>I made a plot like those on slide 43 from our first class and explain the plot to the reader. To do this, I simulate 100,00 draws from the control distribution and 10,000 draws from the treatment distribution. I then calculate a vector of 10,000 differences, and then plot the cumulative average of that vector of differences.</p>
+<pre><code>from scipy.stats import t
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define t-statistic and degrees of freedom
+t_stat = -2.6
+df = 100  # degrees of freedom
+
+# Define x values for the t-distribution
+x = np.linspace(-4, 4, 1000)
+
+# Calculate the t-distribution pdf
+pdf = t.pdf(x, df)
+
+# Calculate the p-value corresponding to the t-statistic (one-tailed)
+p_value = t.cdf(t_stat, df)
+
+# Plot the t-distribution
+plt.plot(x, pdf, color='black', label='t-distribution')
+
+# Highlight the area in the left tail beyond the t-statistic
+x_fill = np.linspace(t_stat, -4, 1000)
+y_fill = t.pdf(x_fill, df)
+plt.fill_between(x_fill, y_fill, color='green', alpha=0.3, label=f'Area: p-value = {p_value:.4f}')
+
+# Mark the t-statistic on the plot
+plt.axvline(x=t_stat, color='red', linestyle='dashed', label=f't-stat = {t_stat}')
+
+# Add labels and title
+plt.title('t-Statistic and Corresponding p-value')
+plt.xlabel('t-value')
+plt.ylabel('Density')
+plt.legend()
+
+plt.grid(True)
+plt.show()</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./t-Statistic and Corresponding p-value.png" class="img-fluid figure-img"></p>
+<figcaption>t-Statistic and Corresponding p-value</figcaption>
+</figure>
+</div>
+<p>Key Elements: Black Curve: The t-distribution with the appropriate degrees of freedom.</p>
+<p>Red Dashed Line: The t-statistic of -2.6.</p>
+<p>Green Shaded Area: The area in the tail of the distribution, corresponding to the p-value. In this case, the p-value is calculated as the area beyond the t-statistic in the left tail of the distribution, which is 0.0054.</p>
+<p>Explanation: The p-value represents the probability of obtaining a result at least as extreme as the observed result, assuming the null hypothesis is true. In this case, the p-value of 0.0054 indicates that we are in the tail of the distribution, which gives us some evidence against the null hypothesis (a result is statistically significant if the p-value is less than 0.05).</p>
+</section>
+<section id="central-limit-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h3>
+<p>I make 4 histograms like those on slide 44 from our first class at sample sizes 50, 200, 500, and 1000.</p>
+<pre><code># Reimporting the necessary libraries and re-running the simulation to generate the histograms
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the function to simulate the differences in means for given sample sizes
+def simulate_diff_in_means(sample_size, control_prob=0.018, treatment_prob=0.022, n_iterations=1000):
+    diff_in_means = []  # List to store the differences in means
+    
+    for _ in range(n_iterations):
+        # Generate random samples from control and treatment distributions
+        control_sample = np.random.binomial(1, control_prob, sample_size)
+        treatment_sample = np.random.binomial(1, treatment_prob, sample_size)
+        
+        # Calculate the difference in means
+        control_mean = np.mean(control_sample)
+        treatment_mean = np.mean(treatment_sample)
+        diff_in_means.append(treatment_mean - control_mean)
+    
+    return diff_in_means
+
+# Simulate the differences in means for sample sizes 50, 200, 500, and 1000
+sample_sizes = [50, 200, 500, 1000]
+diffs = {}
+
+for size in sample_sizes:
+    diffs[size] = simulate_diff_in_means(size)
+
+# Plot the histograms for each sample size
+plt.figure(figsize=(16, 10))
+
+for i, size in enumerate(sample_sizes, 1):
+    plt.subplot(2, 2, i)
+    plt.hist(diffs[size], bins=30, color='blue', edgecolor='black', alpha=0.7)
+    plt.axvline(0, color='red', linestyle='dashed', linewidth=2)
+    plt.title(f'Sample Size = {size}')
+    plt.xlabel('Difference in Means')
+    plt.ylabel('Frequency')
+    plt.tight_layout()
+
+plt.show()</code></pre>
+<p><img src="./Central Limit Theorem.png" class="img-fluid" alt="Central Limit Theorem"> Key Elements:</p>
+<p>X-axis: Difference in means between the treatment and control groups (calculated for each iteration).</p>
+<p>Y-axis: Frequency of occurrence for each difference in means.</p>
+<p>Explanation: Sample Size = 50: The histogram is very wide and unstable, with values spreading across a large range. The cumulative average is less reliable due to the small sample size.</p>
+<p>Sample Size = 200: The distribution starts to narrow, with the differences clustering around 0. The estimate of the difference in means is becoming more stable, but there is still some variability.</p>
+<p>Sample Size = 500: The distribution becomes much narrower and starts to resemble a normal distribution. The estimates are now more consistent with the true value.</p>
+<p>Sample Size = 1000: At this larger sample size, the histogram is quite tight, and the differences in means are centered very closely around the true value of 0.004. The Central Limit Theorem is clearly visible here.</p>
+<p>Conclusion: Central Limit Theorem: As the sample size increases, the distribution of the differences in means becomes more concentrated around the true difference (0.004), demonstrating that the estimate becomes more accurate with larger sample sizes. With a sample size of 1000, the distribution is almost normal, and the cumulative average approaches the true value.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

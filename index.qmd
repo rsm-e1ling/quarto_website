@@ -1,0 +1,13 @@
+---
+title: "Eileen_Website"
+image: "IMG_9759.jpg"
+about:
+  template: jolla
+  links: 
+    - icon: envelope
+      href: mailto:e1ling@ucsd.edu
+    - icon: linkedin
+      href: www.linkedin.com/in/eileen-ling-ba80b9240/
+---
+
+Heyyyy!! This is Eileen Ling and you can also call me Jiawei 凌家蔚! I'm from Shanghai, China and now study in University of California, San Diego, majoring in Business Analytics. 
